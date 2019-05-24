@@ -22,6 +22,43 @@ public class FichaParqueo {
         this.ValorPagar = ValorPagar;
         this.cliente = cliente;
     }
+
+    public Date getFechaInicio() {
+        return FechaInicio;
+    }
+
+    public void setFechaInicio(Date FechaInicio) {
+        this.FechaInicio = FechaInicio;
+    }
+
+    public Date getFechaFin() {
+        return FechaFin;
+    }
+
+    public void setFechaFin(Date FechaFin) {
+        this.FechaFin = FechaFin;
+    }
+
+    public Double getValorPagar() {
+        return ValorPagar;
+    }
+
+    public void setValorPagar(Double ValorPagar) {
+        this.ValorPagar = ValorPagar;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    @Override
+    public String toString() {
+        return "FichaParqueo{" + "FechaInicio=" + FechaInicio + ", FechaFin=" + FechaFin + ", ValorPagar=" + ValorPagar + ", cliente=" + cliente + '}';
+    }
     
     
 
