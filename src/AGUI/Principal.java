@@ -62,6 +62,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         jButtonRegistrarse.setText("Registrarse");
+        jButtonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarseActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButtonRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
 
         jButtonSalir.setText("Salir");
@@ -78,12 +83,22 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Login l = new Login();
+        l.setVisible(true);
+        
+        
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
+        this.setVisible(false);
+        RegistrarCliente rl = new RegistrarCliente();
+        rl.setVisible(true);
+    }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
