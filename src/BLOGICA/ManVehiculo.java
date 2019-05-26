@@ -5,10 +5,19 @@
  */
 package BLOGICA;
 
+import CLASES.Vehiculo;
+
 /**
  *
  * @author David
  */
 public class ManVehiculo {
+
+
+
+    public Vehiculo RegistrarVehiculo(String Placa, String Tipo, String Cedula) {
+        Vehiculo ObjVeh = new Vehiculo(Placa, Tipo, Cedula);
+        return ObjVeh;
+    }
     
 }

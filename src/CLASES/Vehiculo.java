@@ -10,15 +10,15 @@ public class Vehiculo {
 
     public String Placa;
     public String Tipo;
-    public Cliente cliente;
+    public String Cedula;
     
     public Vehiculo() {
     }
 
-    public Vehiculo(String Placa, String Tipo, Cliente cliente) {
+    public Vehiculo(String Placa, String Tipo, String Cedula) {
         this.Placa = Placa;
         this.Tipo = Tipo;
-        this.cliente = cliente;
+        this.Cedula = Cedula;
     }
 
     public String getPlaca() {
@@ -37,18 +37,20 @@ public class Vehiculo {
         this.Tipo = Tipo;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public void setCedula(String Cedula) {
+        this.Cedula = Cedula;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public String getCedula() {
+        return Cedula;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "Placa=" + Placa + ", Tipo=" + Tipo + ", cliente=" + cliente + '}';
+        return "Vehiculo{" + "Placa=" + Placa + ", Tipo=" + Tipo + ", Cedula=" + Cedula + '}';
     }
+
+    
     
     
     

@@ -8,108 +8,99 @@ import java.util.*;
  */
 public class Cliente extends Persona {
 
-    public Integer IdCliente;
-    public String Correo;
-    public ArrayList<Reserva> reserva = new ArrayList<Reserva>(); 
-    public FichaParqueo FichaParqueo;
-    public Set<Vehiculo> Vehiculo;
+    
+    public String Correo; 
+    //public FichaParqueo FichaParqueo;
+    public Vehiculo Vehiculo;
+    public String Celular;
 
      
     public Cliente() {
     }
 
-    public Cliente(Integer IdCliente, String Correo, FichaParqueo FichaParqueo, Set<Vehiculo> Vehiculo, String Nombre, String Apellido, String CI, String User, String Pass) {
+    public Cliente(String Nombre, String Apellido, String Celular, String CI, String User, String Pass, Vehiculo Vehiculo, String Correo) {
         super(Nombre, Apellido, CI, User, Pass);
-        this.IdCliente = IdCliente;
+        this.Celular = Celular;
         this.Correo = Correo;
-        this.FichaParqueo = FichaParqueo;
         this.Vehiculo = Vehiculo;
-    }
-
-    public Integer getIdCliente() {
-        return IdCliente;
-    }
-
-    public void setIdCliente(Integer IdCliente) {
-        this.IdCliente = IdCliente;
-    }
-
-    public String getCorreo() {
-        return Correo;
     }
 
     public void setCorreo(String Correo) {
         this.Correo = Correo;
     }
 
-    public ArrayList<Reserva> getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(ArrayList<Reserva> reserva) {
-        this.reserva = reserva;
-    }
-
-    public FichaParqueo getFichaParqueo() {
-        return FichaParqueo;
-    }
-
-    public void setFichaParqueo(FichaParqueo FichaParqueo) {
-        this.FichaParqueo = FichaParqueo;
-    }
-
-    public Set<Vehiculo> getVehiculo() {
-        return Vehiculo;
-    }
-
-    public void setVehiculo(Set<Vehiculo> Vehiculo) {
+    public void setVehiculo(Vehiculo Vehiculo) {
         this.Vehiculo = Vehiculo;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public void setCelular(String Celular) {
+        this.Celular = Celular;
     }
 
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
 
-    public String getApellido() {
-        return Apellido;
-    }
-
     public void setApellido(String Apellido) {
         this.Apellido = Apellido;
-    }
-
-    public String getCI() {
-        return CI;
     }
 
     public void setCI(String CI) {
         this.CI = CI;
     }
 
-    public String getUser() {
-        return User;
-    }
-
     public void setUser(String User) {
         this.User = User;
-    }
-
-    public String getPass() {
-        return Pass;
     }
 
     public void setPass(String Pass) {
         this.Pass = Pass;
     }
 
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public Vehiculo getVehiculo() {
+        return Vehiculo;
+    }
+
+    public String getCelular() {
+        return Celular;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public String getCI() {
+        return CI;
+    }
+
+    public String getUser() {
+        return User;
+    }
+
+    public String getPass() {
+        return Pass;
+    }
+
     @Override
     public String toString() {
-        return "Cliente{" + "IdCliente=" + IdCliente + ", Correo=" + Correo + ", reserva=" + reserva + ", FichaParqueo=" + FichaParqueo + ", Vehiculo=" + Vehiculo + '}';
+        return "Cliente{" + "Nombre= " + Nombre + " Apellido= " + Apellido + " Cedula= " + CI + " Celular= " + Celular + " Correo=" + Correo + ",  Vehiculo=" + Vehiculo +  '}';
     }
+
+    
+
+    
+
+    
+    
+   
     
     
     

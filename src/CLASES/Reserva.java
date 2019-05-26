@@ -13,18 +13,28 @@ public class Reserva {
     public Date HoraFin;
     public String Estado;
     public Cliente cliente;
+    public FichaParqueo FichaParqueo;
     
     public Reserva() {
     }
 
-    public Reserva(Integer IdReserva, Date HoraInicio, Date HoraFin, String Estado, Cliente cliente) {
+    public Reserva(Integer IdReserva, Date HoraInicio, Date HoraFin, String Estado, Cliente cliente, FichaParqueo FichaParqueo) {
         this.IdReserva = IdReserva;
         this.HoraInicio = HoraInicio;
         this.HoraFin = HoraFin;
         this.Estado = Estado;
         this.cliente = cliente;
+        this.FichaParqueo = FichaParqueo;
     }
 
+    public void setFichaParqueo(FichaParqueo FichaParqueo) {
+        this.FichaParqueo = FichaParqueo;
+    }
+
+    public FichaParqueo getFichaParqueo() {
+        return FichaParqueo;
+    }  
+    
     public Integer getIdReserva() {
         return IdReserva;
     }
