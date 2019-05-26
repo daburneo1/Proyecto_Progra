@@ -35,9 +35,9 @@ public class GUI_Login extends javax.swing.JFrame {
         jTextFieldPassword = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonCliente = new javax.swing.JButton();
+        jButtonAdministrador = new javax.swing.JButton();
+        jButtonPropietario = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,19 +70,29 @@ public class GUI_Login extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
-        jButton1.setText("Cliente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCliente.setText("Cliente");
+        jButtonCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        jButton2.setText("Administrador");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        jButtonAdministrador.setText("Administrador");
+        jButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdministradorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
-        jButton3.setText("Propietario");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 100, -1));
+        jButtonPropietario.setText("Propietario");
+        jButtonPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPropietarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 100, -1));
 
         jButton4.setText("Atras");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -99,16 +109,26 @@ public class GUI_Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.jButton2.setEnabled(false);
-        this.jButton3.setEnabled(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
+        this.jButtonAdministrador.setEnabled(false);
+        this.jButtonPropietario.setEnabled(false);
+    }//GEN-LAST:event_jButtonClienteActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
            this.setVisible(false);
         GUI_Principal p = new GUI_Principal();
         p.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButtonPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPropietarioActionPerformed
+        this.jButtonAdministrador.setEnabled(false);
+        this.jButtonCliente.setEnabled(false);
+    }//GEN-LAST:event_jButtonPropietarioActionPerformed
+
+    private void jButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdministradorActionPerformed
+        this.jButtonCliente.setEnabled(false);
+        this.jButtonPropietario.setEnabled(false);
+    }//GEN-LAST:event_jButtonAdministradorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,11 +167,11 @@ public class GUI_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButtonAdministrador;
+    private javax.swing.JButton jButtonCliente;
+    private javax.swing.JButton jButtonPropietario;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

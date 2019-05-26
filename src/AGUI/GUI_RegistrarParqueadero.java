@@ -7,6 +7,7 @@ package AGUI;
 
 import BLOGICA.Expresiones;
 import BLOGICA.ManParqueadero;
+import CLASES.Parqueadero;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
 public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
 
     ManParqueadero ObjManParq = new ManParqueadero();
-    Parqueaderos ObjParq = new Parqueaderos();
+    Parqueadero ObjParq = new Parqueadero();
     Expresiones ObjExp = new Expresiones();
         
     public GUI_RegistrarParqueadero() {
