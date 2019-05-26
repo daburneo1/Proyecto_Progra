@@ -5,17 +5,23 @@
  */
 package AGUI;
 
+import BLOGICA.Expresiones;
+import BLOGICA.ManParqueadero;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
  */
 public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistrarParqueadero
-     */
+    ManParqueadero ObjManParq = new ManParqueadero();
+    Parqueaderos ObjParq = new Parqueaderos();
+    Expresiones ObjExp = new Expresiones();
+        
     public GUI_RegistrarParqueadero() {
         initComponents();
+        
     }
 
     /**
@@ -35,14 +41,14 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jTextFieldNombreP = new javax.swing.JTextField();
+        jTextFieldCalleP = new javax.swing.JTextField();
+        jTextFieldCalleS = new javax.swing.JTextField();
+        jTextFieldSector = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
+        jSpinnerNPlazas = new javax.swing.JSpinner();
+        jSpinnerTarifa = new javax.swing.JSpinner();
+        jButtonConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,18 +80,15 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jLabel7.setText("Tarifa:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombreP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextFieldNombrePActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 170, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 170, -1));
-
-        jButton1.setText("Confirmar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, -1, -1));
+        getContentPane().add(jTextFieldNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
+        getContentPane().add(jTextFieldCalleP, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, -1));
+        getContentPane().add(jTextFieldCalleS, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 170, -1));
+        getContentPane().add(jTextFieldSector, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 170, -1));
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -95,9 +98,17 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
 
-        jSpinner1.setName(""); // NOI18N
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
-        getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
+        jSpinnerNPlazas.setName(""); // NOI18N
+        getContentPane().add(jSpinnerNPlazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        getContentPane().add(jSpinnerTarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
+
+        jButtonConfirmar.setText("Confirmar");
+        jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,9 +117,47 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextFieldNombrePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombrePActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextFieldNombrePActionPerformed
+
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        int ok = 1;
+
+        System.out.println("asdasdasd");
+     
+        if(this.jTextFieldNombreP != null){
+            ok = 1;
+            
+            if(this.jTextFieldCalleP != null){
+                ok = 1;
+                
+                if(this.jTextFieldCalleS!= null){
+                    ok = 1;
+                    
+                    if(this.jTextFieldSector != null){
+                        ok = 1;
+                    }else{
+                        ok = 0;
+                        JOptionPane.showMessageDialog(null, "El campo Sector se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    }
+                }else{
+                    ok = 0;
+                    JOptionPane.showMessageDialog(null, "El campo Calle Secundaria se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            }else{
+                ok = 0;
+                JOptionPane.showMessageDialog(null, "El campo Calle Principal se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } 
+         }else{
+            ok = 0;
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre para el parqueadero", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+     
+        if(ok == 1){
+            System.out.println(" chek ");
+        }
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,8 +196,8 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -157,11 +206,11 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JSpinner jSpinnerNPlazas;
+    private javax.swing.JSpinner jSpinnerTarifa;
+    private javax.swing.JTextField jTextFieldCalleP;
+    private javax.swing.JTextField jTextFieldCalleS;
+    private javax.swing.JTextField jTextFieldNombreP;
+    private javax.swing.JTextField jTextFieldSector;
     // End of variables declaration//GEN-END:variables
 }
