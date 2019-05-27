@@ -36,20 +36,39 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jTextFieldNombreP = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jTextFieldCalleP = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jTextFieldCalleS = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jTextFieldSector = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jSpinnerNPlazas = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
         jSpinnerTarifa = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
         jButtonConfirmar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,47 +80,86 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jLabel1.setText("Registrar Parqueadero");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 180, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 250, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 250, 50));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Nombre del Parqueadero:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
-
-        jLabel3.setText("Calle Principal:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
-
-        jLabel4.setText("Calle Secundaria:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
-
-        jLabel5.setText("Sector:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
-
-        jLabel6.setText("Numero de Plazas:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
-
-        jLabel7.setText("Tarifa:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jTextFieldNombreP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombrePActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
-        getContentPane().add(jTextFieldCalleP, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, -1));
-        getContentPane().add(jTextFieldCalleS, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 170, -1));
-        getContentPane().add(jTextFieldSector, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 170, -1));
+        jPanel2.add(jTextFieldNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 170, -1));
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
+        jLabel3.setText("Calle Principal:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jPanel2.add(jTextFieldCalleP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 170, -1));
+
+        jLabel4.setText("Calle Secundaria:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jPanel2.add(jTextFieldCalleS, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 170, -1));
+
+        jLabel5.setText("Sector:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel2.add(jTextFieldSector, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 170, -1));
+
+        jLabel6.setText("Numero de Plazas:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         jSpinnerNPlazas.setName(""); // NOI18N
-        getContentPane().add(jSpinnerNPlazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
-        getContentPane().add(jSpinnerTarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
+        jPanel2.add(jSpinnerNPlazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+
+        jLabel7.setText("Tarifa:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jPanel2.add(jSpinnerTarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+
+        jLabel9.setText("Datos del Parqueadero");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cerrado", "Abierto" }));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
+
+        jLabel16.setText("Estado:");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 500, 280));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setText("Datos del Propietario");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+
+        jLabel10.setText("Confirmar Contraseña:");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        jLabel11.setText("Nombre:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        jLabel12.setText("Apellido:");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        jLabel13.setText("Cedula:");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+
+        jLabel14.setText("Usuario:");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        jLabel15.setText("Contraseña:");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 170, -1));
+        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 170, -1));
+        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 170, -1));
+        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 170, -1));
+        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 170, -1));
+        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 170, -1));
+        jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 170, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 500, 230));
 
         jButtonConfirmar.setText("Confirmar");
         jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +167,15 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
                 jButtonConfirmarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
+        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, -1, -1));
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,38 +191,41 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         int ok = 1;
 
-        System.out.println("asdasdasd");
-     
-        if(this.jTextFieldNombreP != null){
+        if(this.jTextFieldNombreP.getText() != null){
             ok = 1;
-            
-            if(this.jTextFieldCalleP != null){
-                ok = 1;
-                
-                if(this.jTextFieldCalleS!= null){
-                    ok = 1;
-                    
-                    if(this.jTextFieldSector != null){
-                        ok = 1;
-                    }else{
-                        ok = 0;
-                        JOptionPane.showMessageDialog(null, "El campo Sector se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
-                    }
-                }else{
-                    ok = 0;
-                    JOptionPane.showMessageDialog(null, "El campo Calle Secundaria se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }else{
-                ok = 0;
-                JOptionPane.showMessageDialog(null, "El campo Calle Principal se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
-            } 
-         }else{
+        }else{
             ok = 0;
             JOptionPane.showMessageDialog(null, "Ingrese un nombre para el parqueadero", "ERROR", JOptionPane.ERROR_MESSAGE);
+
         }
-     
+
+        if(this.jTextFieldCalleP.getText() != null){
+            ok = 1;
+        }else{
+            ok = 0;
+            JOptionPane.showMessageDialog(null, "El campo Calle Principal se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+        if(this.jTextFieldCalleS.getText() != null){
+            ok = 1;
+        }else{
+            ok = 0;
+            JOptionPane.showMessageDialog(null, "El campo Calle Secundaria se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+        if(this.jTextFieldSector.getText() != null){
+            ok = 1;
+        }else{
+            ok = 0;
+            JOptionPane.showMessageDialog(null, "El campo Sector se encuentra vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+        }
+
         if(ok == 1){
             System.out.println(" chek ");
+            //ObjParq = ObjManParq.RegistrarParqueadero(Nombre, CallePrincipal, CalleSecundaria, Sector, ICONIFIED, Double.NaN, propietario, estado)
         }
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
@@ -199,16 +268,35 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSpinner jSpinnerNPlazas;
     private javax.swing.JSpinner jSpinnerTarifa;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextFieldCalleP;
     private javax.swing.JTextField jTextFieldCalleS;
     private javax.swing.JTextField jTextFieldNombreP;
