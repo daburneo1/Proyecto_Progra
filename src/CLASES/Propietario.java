@@ -8,32 +8,13 @@ import java.util.*;
  */
 public class Propietario extends Persona {
     
-    public int IdPropietario;
-    public Parqueadero parqueadero;
     
     public Propietario() {
     }
 
-    public Propietario(int IdPropietario, Parqueadero parqueadero, String Nombre, String Apellido, String CI, String User, String Pass) {
+    public Propietario(String Nombre, String Apellido, String CI, String User, String Pass) {
         super(Nombre, Apellido, CI, User, Pass);
-        this.IdPropietario = IdPropietario;
-        this.parqueadero = parqueadero;
-    }
-
-    public int getIdPropietario() {
-        return IdPropietario;
-    }
-
-    public void setIdPropietario(int IdPropietario) {
-        this.IdPropietario = IdPropietario;
-    }
-
-    public Parqueadero getParqueadero() {
-        return parqueadero;
-    }
-
-    public void setParqueadero(Parqueadero parqueadero) {
-        this.parqueadero = parqueadero;
+        
     }
 
     public String getNombre() {
@@ -78,7 +59,7 @@ public class Propietario extends Persona {
 
     @Override
     public String toString() {
-        return "Propietario{" + "IdPropietario=" + IdPropietario + ", parqueadero=" + parqueadero + '}';
+        return "Propietario{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Cedula=" + CI + ", User=" + User + ", Password" + Pass + '}';
     }
 
     

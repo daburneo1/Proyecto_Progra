@@ -29,13 +29,14 @@ public class ManParqueadero {
     }
     
     
-       public void EscribirRegistros(Parqueadero ObjParq) throws IOException{
+    
+    public void EscribirRegistros(Parqueadero ObjParq) throws IOException{
         System.out.println(ObjParq.toString());
-        File f = new File("parqueadero.csv");
+        File f = new File("parqueaderos.csv");
         try {
             FileOutputStream fos = new FileOutputStream(f, true);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject("\r\n" + ObjParq.getNombre() + "," + ObjParq.getCallePrincipal() + "," + ObjParq.getCalleSecundaria()+  "," + ObjParq.getSector()+ ","+ ObjParq.getPlazaParqueo()+","+ ObjParq.getTarifa());
+            oos.writeObject("\r\n" + ObjParq.getNombre() + "," + ObjParq.getCallePrincipal() + "," + ObjParq.getCalleSecundaria()+  "," + ObjParq.getSector()+ ","+ ObjParq.getPlazaParqueo()+","+ ObjParq.getTarifa() + ","+ ObjParq.getPropietario() + "," + ObjParq.getEstado());
             oos.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ManParqueadero.class.getName()).log(Level.SEVERE, null, ex);

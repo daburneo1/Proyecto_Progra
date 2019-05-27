@@ -4,12 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/AGUI/GUI_Login.java</file>
+            <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/BLOGICA/ManPropietario.java</file>
             <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/BLOGICA/ManCliente.java</file>
+            <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/CLASES/Propietario.java</file>
             <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/CLASES/Parqueadero.java</file>
             <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/AGUI/GUI_RegistrarCliente.java</file>
+            <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/BLOGICA/ManEstadoParqueadero.java</file>
             <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/AGUI/GUI_RegistrarParqueadero.java</file>
             <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/BLOGICA/ManParqueadero.java</file>
             <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/AGUI/GUI_Parqueaderos.java</file>
+            <file>file:/C:/Users/David/Documents/Sistemas/4to/Programacion_Avanzada/Proyect/ParkingControl/Proyecto_Progra/src/CLASES/EstadoParqueadero.java</file>
         </group>
     </open-files>
 </project-private>

@@ -11,17 +11,17 @@ public class EstadoParqueadero {
     public String Estado;
     public Date Fecha;
     public String Observaciones;
-    public Parqueadero parqueadero;
+
   
     
     public EstadoParqueadero() {
     }
 
-    public EstadoParqueadero(String Estado, Date Fecha, String Observaciones, Parqueadero parqueadero) {
+    public EstadoParqueadero(String Estado, Date Fecha, String Observaciones) {
         this.Estado = Estado;
         this.Fecha = Fecha;
         this.Observaciones = Observaciones;
-        this.parqueadero = parqueadero;
+        
     }
 
     public String getEstado() {
@@ -48,17 +48,11 @@ public class EstadoParqueadero {
         this.Observaciones = Observaciones;
     }
 
-    public Parqueadero getParqueadero() {
-        return parqueadero;
-    }
-
-    public void setParqueadero(Parqueadero parqueadero) {
-        this.parqueadero = parqueadero;
-    }
+    
 
     @Override
     public String toString() {
-        return "EstadoParqueadero{" + "Estado=" + Estado + ", Fecha=" + Fecha + ", Observaciones=" + Observaciones + ", parqueadero=" + parqueadero + '}';
+        return "EstadoParqueadero{" + "Estado=" + Estado + ", Fecha=" + Fecha + ", Observaciones=" + Observaciones + '}';
     }
 
     

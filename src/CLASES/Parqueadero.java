@@ -107,7 +107,7 @@ public class Parqueadero {
 
     @Override
     public String toString() {
-        return "Parqueadero{" + "Nombre=" + Nombre + ", CallePrincipal=" + CallePrincipal + ", CalleSecundaria=" + CalleSecundaria + ", Sector=" + Sector + ", PlazasDisponibles=" + PlazasDisponibles + ", Tarifa=" + Tarifa + ", propietario=" + propietario + ", estado=" + estado + ", plazaParqueo=" + plazaParqueo + '}';
+        return "Parqueadero{" + "Nombre=" + Nombre + ", CallePrincipal=" + CallePrincipal + ", CalleSecundaria=" + CalleSecundaria + ", Sector=" + Sector + ", PlazasDisponibles=" + PlazasDisponibles + ", Tarifa=" + Tarifa + ", propietario=" + propietario + ", estado=" + estado + '}';
     }
 
     

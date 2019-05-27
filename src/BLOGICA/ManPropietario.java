@@ -5,11 +5,18 @@
  */
 package BLOGICA;
 
+import CLASES.Propietario;
+
 /**
  *
  * @author David
  */
 public class ManPropietario {
+    
+    public Propietario CrearPropietario(String Nombre, String Apellido, String Cedula, String User, String Password){
+        Propietario ObjPro = new Propietario(Nombre, Apellido, Cedula, User, Password);
+        return ObjPro;
+    }
     
     public void ModificarParqueadero() {
         
@@ -22,5 +29,7 @@ public class ManPropietario {
     public void ModificarCliente() {
         
     }
+
+    
     
 }
