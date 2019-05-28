@@ -58,7 +58,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBoxEstado = new javax.swing.JComboBox<>();
+        jComboBoxEstado = new javax.swing.JComboBox<String>();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jSpinnerNPlazas = new javax.swing.JSpinner();
@@ -84,6 +84,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -91,8 +92,9 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jLabel1.setText("Registrar Parqueadero");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 180, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 250, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 250, 50));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -127,7 +129,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jLabel9.setText("Datos del Parqueadero");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
-        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cerrado", "Abierto" }));
+        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cerrado", "Abierto" }));
         jPanel2.add(jComboBoxEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
 
         jLabel16.setText("Estado:");
@@ -138,8 +140,9 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jPanel2.add(jSpinnerNPlazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 50, -1));
         jPanel2.add(jTextFieldTarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 50, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 500, 290));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 500, 290));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -147,7 +150,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         jLabel10.setText("Confirmar Contraseña:");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         jLabel11.setText("Nombre:");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
@@ -171,7 +174,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jPanel3.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 170, -1));
         jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 170, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 500, 230));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 500, 230));
 
         jButtonConfirmar.setText("Confirmar");
         jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +182,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
                 jButtonConfirmarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, -1, -1));
+        getContentPane().add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, -1, -1));
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +190,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 610, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

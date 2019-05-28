@@ -5,6 +5,10 @@
  */
 package AGUI;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author David
@@ -16,6 +20,10 @@ public class GUI_Login extends javax.swing.JFrame {
      */
     public GUI_Login() {
         initComponents();
+        ImageIcon imagen1=new ImageIcon(getClass().getResource("/IMAGENES/KICC_Maps.jpg"));
+        Icon fondo1=new ImageIcon(imagen1.getImage().getScaledInstance(imgfondo.getWidth(), imgfondo.getHeight(), Image.SCALE_DEFAULT));
+        imgfondo.setIcon(fondo1);
+        this.repaint();
     }
 
     /**
@@ -31,14 +39,14 @@ public class GUI_Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
-        jTextFieldPassword = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
+        txtconstrasena = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
-        jButtonCliente = new javax.swing.JButton();
-        jButtonAdministrador = new javax.swing.JButton();
-        jButtonPropietario = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        cmbRoles = new javax.swing.JComboBox();
+        imgfondo = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,21 +54,32 @@ public class GUI_Login extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Iniciar Sesión");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 90, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 180, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 220, 60));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 220, 60));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 10));
 
-        jLabel3.setText("Contraseña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 170, -1));
-        getContentPane().add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 170, -1));
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Seleccione Rol:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 170, -1));
+        getContentPane().add(txtconstrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 170, -1));
 
-        jButtonAceptar.setText("Aceptar");
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        jButtonAceptar.setText("Ingresar");
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAceptarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
         jButtonSalir.setText("Salir");
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -68,39 +87,17 @@ public class GUI_Login extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 70, -1));
 
-        jButtonCliente.setText("Cliente");
-        jButtonCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Contraseña");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
-        jButtonAdministrador.setText("Administrador");
-        jButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdministradorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
-
-        jButtonPropietario.setText("Propietario");
-        jButtonPropietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPropietarioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 100, -1));
-
-        jButton4.setText("Atras");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+        cmbRoles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Propietario", "Cliente" }));
+        getContentPane().add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 140, -1));
+        getContentPane().add(imgfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 330));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 350, 140));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,26 +106,18 @@ public class GUI_Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
-        this.jButtonAdministrador.setEnabled(false);
-        this.jButtonPropietario.setEnabled(false);
-    }//GEN-LAST:event_jButtonClienteActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-           this.setVisible(false);
-        GUI_Principal p = new GUI_Principal();
-        p.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButtonPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPropietarioActionPerformed
-        this.jButtonAdministrador.setEnabled(false);
-        this.jButtonCliente.setEnabled(false);
-    }//GEN-LAST:event_jButtonPropietarioActionPerformed
-
-    private void jButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdministradorActionPerformed
-        this.jButtonCliente.setEnabled(false);
-        this.jButtonPropietario.setEnabled(false);
-    }//GEN-LAST:event_jButtonAdministradorActionPerformed
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
+        // TODO add your handling code here:
+        if(cmbRoles.getSelectedItem() ==  "Administrador" ){
+            
+        }else if(cmbRoles.getSelectedItem() ==  "Propietario" ){
+            
+        }else if(txtUsuario.getText().equals("cliente") && txtconstrasena.getText().equals("1234")){
+            GUI_Cliente cliente = new GUI_Cliente();
+            dispose();
+            cliente.setVisible(true);
+        }
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,17 +156,17 @@ public class GUI_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox cmbRoles;
+    private javax.swing.JLabel imgfondo;
     private javax.swing.JButton jButtonAceptar;
-    private javax.swing.JButton jButtonAdministrador;
-    private javax.swing.JButton jButtonCliente;
-    private javax.swing.JButton jButtonPropietario;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldPassword;
-    private javax.swing.JTextField jTextFieldUsuario;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JTextField txtconstrasena;
     // End of variables declaration//GEN-END:variables
 }

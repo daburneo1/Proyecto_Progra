@@ -53,7 +53,6 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
         jTextFieldCorreo = new javax.swing.JTextField();
         jLabelCorreoElectronico = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButtonConfirmarCliente = new javax.swing.JButton();
         jTextFieldCedula1 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jTextFieldCelular1 = new javax.swing.JTextField();
@@ -63,9 +62,8 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextFieldPlaca = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jComboBoxTipoVehiculo = new javax.swing.JComboBox<>();
+        jComboBoxTipoVehiculo = new javax.swing.JComboBox<String>();
         jLabel12 = new javax.swing.JLabel();
-        jButtonConfirmarVehiculo = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -74,7 +72,6 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
         jTextFieldPassword = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jTextFieldConfirmarPassword = new javax.swing.JTextField();
-        jButtonConfirmarUsuario = new javax.swing.JButton();
         jButtonConfirmarRegistro = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -87,6 +84,7 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -94,13 +92,14 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
         jLabel1.setText("Registrar Cliente");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 140, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 210, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 210, 50));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Nombre:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         jTextFieldNombre.setText("David");
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -108,10 +107,10 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 230, -1));
+        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 230, -1));
 
         jLabel4.setText("Apellido:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jTextFieldApellido.setText("Burneo");
         jTextFieldApellido.addActionListener(new java.awt.event.ActionListener() {
@@ -119,10 +118,10 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldApellidoActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 230, -1));
+        jPanel2.add(jTextFieldApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 230, -1));
 
         jLabel5.setText("Cedula:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         jTextFieldCorreo.setText("davichov2013@gmail.com");
         jTextFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -130,21 +129,14 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldCorreoActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 230, -1));
+        jPanel2.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 230, -1));
 
         jLabelCorreoElectronico.setText("E-Mail");
-        jPanel2.add(jLabelCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        jPanel2.add(jLabelCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Datos Personales");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
-
-        jButtonConfirmarCliente.setText("Confirmar");
-        jButtonConfirmarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConfirmarClienteActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonConfirmarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jTextFieldCedula1.setText("1104745540");
         jTextFieldCedula1.addActionListener(new java.awt.event.ActionListener() {
@@ -152,10 +144,10 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldCedula1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldCedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 230, -1));
+        jPanel2.add(jTextFieldCedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 90, -1));
 
         jLabel17.setText("Celular:");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jTextFieldCelular1.setText("0991211239");
         jTextFieldCelular1.addActionListener(new java.awt.event.ActionListener() {
@@ -163,21 +155,24 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldCelular1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldCelular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 230, -1));
+        jPanel2.add(jTextFieldCelular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 230, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 520, 240));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 380, 190));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Ingrese los datos solicitados para registrarse en el sistema");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 340, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 360, 20));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("LAA-0000");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 100, -1));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 100, -1));
 
         jLabel10.setText("Placa");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jTextFieldPlaca.setText("PBS8585");
         jTextFieldPlaca.addActionListener(new java.awt.event.ActionListener() {
@@ -185,35 +180,30 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldPlacaActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextFieldPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 130, -1));
+        jPanel3.add(jTextFieldPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 130, -1));
 
         jLabel9.setText("Tipo de Vehiculo");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jComboBoxTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automovil", "Camioneta", "Buseta", "Camión pequeño" }));
-        jPanel3.add(jComboBoxTipoVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
+        jComboBoxTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Automovil", "Camioneta", "Buseta", "Camión pequeño" }));
+        jPanel3.add(jComboBoxTipoVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Datos del Vehículo");
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
-        jButtonConfirmarVehiculo.setText("Confirmar");
-        jButtonConfirmarVehiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConfirmarVehiculoActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButtonConfirmarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 380, 130));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 510, 190));
-
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("Datos Usuario");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jLabel14.setText("Nombre de Usuario");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jTextFieldUser.setText("daburneo1");
         jTextFieldUser.addActionListener(new java.awt.event.ActionListener() {
@@ -221,24 +211,21 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldUserActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 170, -1));
+        jPanel4.add(jTextFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 170, -1));
 
         jLabel15.setText("Contraseña");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jTextFieldPassword.setText("dada");
-        jPanel4.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 170, -1));
+        jPanel4.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 170, -1));
 
         jLabel16.setText("Confirmar Contraseña");
-        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         jTextFieldConfirmarPassword.setText("dada");
-        jPanel4.add(jTextFieldConfirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 170, -1));
+        jPanel4.add(jTextFieldConfirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 170, -1));
 
-        jButtonConfirmarUsuario.setText("Confirmar");
-        jPanel4.add(jButtonConfirmarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 520, 160));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 380, 160));
 
         jButtonConfirmarRegistro.setText("Confirmar Registro");
         jButtonConfirmarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -246,10 +233,10 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jButtonConfirmarRegistroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonConfirmarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, -1, -1));
+        getContentPane().add(jButtonConfirmarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, -1, -1));
 
         jButton3.setText("Editar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 620, -1, -1));
 
         jButton4.setText("Cancelar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -257,7 +244,7 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 620, -1, -1));
 
         jButton5.setText("Atras");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +252,7 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 620, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 620, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -289,14 +276,6 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
     private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUserActionPerformed
-
-    private void jButtonConfirmarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarClienteActionPerformed
-        
-    }//GEN-LAST:event_jButtonConfirmarClienteActionPerformed
-
-    private void jButtonConfirmarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarVehiculoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonConfirmarVehiculoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -434,10 +413,7 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButtonConfirmarCliente;
     private javax.swing.JButton jButtonConfirmarRegistro;
-    private javax.swing.JButton jButtonConfirmarUsuario;
-    private javax.swing.JButton jButtonConfirmarVehiculo;
     private javax.swing.JComboBox<String> jComboBoxTipoVehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

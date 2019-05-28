@@ -7,9 +7,12 @@ package AGUI;
 
 import BLOGICA.ManParqueadero;
 import CLASES.Parqueadero;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 import DATA.Data_Parqueadero;
+import java.awt.Image;
+import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +29,10 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
     
     public GUI_Parqueaderos() {
         initComponents();
+        ImageIcon imagen1=new ImageIcon(getClass().getResource("/IMAGENES/logo.png"));
+        Icon fondo1=new ImageIcon(imagen1.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_DEFAULT));
+        logo.setIcon(fondo1);
+        this.repaint();
         
         
     }
@@ -43,13 +50,14 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButtonListar = new javax.swing.JButton();
+        logo = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -63,10 +71,11 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         jLabel1.setText("Parqueaderos Disponibles en el Sistema");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 370, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Seleccione el sector:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Sebastian", "Santo Domingo", "Parque Bolivar", "Parque Central", "San Francisco", "Mercado" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "San Sebastian", "Santo Domingo", "Parque Bolivar", "Parque Central", "San Francisco", "Mercado" }));
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox1MouseClicked(evt);
@@ -77,7 +86,7 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,10 +101,11 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 680, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 680, 100));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Seleccione un Parqueadero para generar la reserva");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         jButton3.setText("Confirmar Parqueadero");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +113,7 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +121,7 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         jButtonListar.setText("Listar");
         jButtonListar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,9 +129,10 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
                 jButtonListarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
+        jPanel1.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+        jPanel1.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 130, 100));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 990, 450));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,5 +224,6 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }
