@@ -5,17 +5,29 @@
  */
 package AGUI;
 
+import BLOGICA.ManParqueadero;
+import CLASES.Parqueadero;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import DATA.Data_Parqueadero;
+
 /**
  *
  * @author David
  */
 public class GUI_Parqueaderos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Parqueaderos
-     */
+    ArrayList<Parqueadero> ArrayParqueaderos = new ArrayList<Parqueadero>();
+    Data_Parqueadero ObjDatPar = new Data_Parqueadero();
+    ManParqueadero ObjManPar = new ManParqueadero();
+    //String Sector = this.jComboBox1.getActionCommand();
+    
+    int rowSel = -1;
+    
     public GUI_Parqueaderos() {
         initComponents();
+        
+        
     }
 
     /**
@@ -37,6 +49,7 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButtonListar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -53,7 +66,12 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         jLabel2.setText("Seleccione el sector:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Sebastian", "Santo Domingo", "Parque Bolivar", "Parque Central", "San Francisco" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Sebastian", "Santo Domingo", "Parque Bolivar", "Parque Central", "San Francisco", "Mercado" }));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -95,6 +113,14 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, -1, -1));
 
+        jButtonListar.setText("Listar");
+        jButtonListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 990, 450));
 
         pack();
@@ -111,6 +137,33 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
+       
+        jTable1.removeAll();
+        
+        Object columnas[] = {"Nombre","Calle Principal","Calle Secundaria","Sector","Plazas Disponibles","Tafifa"};
+        DefaultTableModel modelo = new DefaultTableModel (null, columnas);
+        jTable1.setModel(modelo);
+        String Sector = this.jComboBox1.getSelectedItem().toString();
+        ArrayParqueaderos = ObjManPar.ImportarParqueaderos(ArrayParqueaderos, Sector);
+        for(Parqueadero ObjPar: ArrayParqueaderos){
+            String NewValor[] = {String.valueOf(ObjPar.getNombre()),
+                    String.valueOf(ObjPar.getCallePrincipal()),
+                    String.valueOf(ObjPar.getCalleSecundaria()),
+                    String.valueOf(ObjPar.getSector()),
+                    String.valueOf(ObjPar.getPlazasDisponibles()),
+                    String.valueOf(ObjPar.getTarifa())};
+            modelo.addRow(NewValor);
+
+                
+        }
+        
+    }//GEN-LAST:event_jButtonListarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,6 +205,7 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonListar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

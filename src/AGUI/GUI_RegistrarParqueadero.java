@@ -6,10 +6,8 @@
 package AGUI;
 
 import BLOGICA.Expresiones;
-import BLOGICA.ManEstadoParqueadero;
 import BLOGICA.ManParqueadero;
 import BLOGICA.ManPropietario;
-import CLASES.EstadoParqueadero;
 import CLASES.Parqueadero;
 import CLASES.Propietario;
 import java.io.IOException;
@@ -29,9 +27,7 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
     Parqueadero ObjParq = new Parqueadero();
     Expresiones ObjExp = new Expresiones();
     Propietario ObjPro = new Propietario();
-    ManPropietario ObjManPro = new ManPropietario();
-    EstadoParqueadero ObjEst = new EstadoParqueadero();
-    ManEstadoParqueadero ObjManEst = new ManEstadoParqueadero();    
+    ManPropietario ObjManPro = new ManPropietario(); 
     
     public GUI_RegistrarParqueadero() {
         initComponents();
@@ -65,8 +61,6 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         jComboBoxEstado = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jTextFieldObservaciones = new javax.swing.JTextField();
         jSpinnerNPlazas = new javax.swing.JSpinner();
         jTextFieldTarifa = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -141,10 +135,6 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
 
         jLabel17.setText("0.75");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
-
-        jLabel18.setText("Observaciones:");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
-        jPanel2.add(jTextFieldObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 140, -1));
         jPanel2.add(jSpinnerNPlazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 50, -1));
         jPanel2.add(jTextFieldTarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 50, -1));
 
@@ -248,15 +238,17 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
         if(ok == 1){
             System.out.println(" chek ");
             
-            ObjPro = ObjManPro.CrearPropietario(this.jTextFieldNombre.getText(), 
+            ObjPro = ObjManPro.CrearPropietario(this.jTextFieldNombreP.getText(),
+                    this.jTextFieldNombre.getText(), 
                     this.jTextFieldApellido.getText(),
                     this.jTextFieldCedula.getText(),
                     this.jTextFieldUser.getText(),
                     this.jTextFieldPassword.getText());
             
-            ObjEst = ObjManEst.CambiarEstado(this.jComboBoxEstado.getSelectedItem().toString(), 
+           /* ObjEst = ObjManEst.CambiarEstado(this.jTextFieldNombreP.getText(),
+                    this.jComboBoxEstado.getSelectedItem().toString(), 
                     new Date(), 
-                    this.jTextFieldObservaciones.getText());
+                    this.jTextFieldObservaciones.getText());*/
             
             ObjParq = ObjManParq.RegistrarParqueadero(this.jTextFieldNombreP.getText(), 
                     this.jTextFieldCalleP.getText(),
@@ -265,12 +257,18 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
                     Integer.parseInt(this.jSpinnerNPlazas.getValue().toString()),
                     Double.parseDouble(this.jTextFieldTarifa.getText()),
                     ObjPro,
-                    ObjEst);
+                    String.valueOf(this.jComboBoxEstado.getSelectedItem().toString()));
             
             JOptionPane.showMessageDialog(null, ObjParq);
             
             try {
-                ObjManParq.EscribirRegistros(ObjParq);
+                ObjManParq.EscribirParqueaderos(ObjParq);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_RegistrarParqueadero.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            try {
+                ObjManParq.EscribirPropietarios(ObjPro);
             } catch (IOException ex) {
                 Logger.getLogger(GUI_RegistrarParqueadero.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -327,7 +325,6 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -348,7 +345,6 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldConfirmPassword;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldNombreP;
-    private javax.swing.JTextField jTextFieldObservaciones;
     private javax.swing.JTextField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldSector;
     private javax.swing.JTextField jTextFieldTarifa;

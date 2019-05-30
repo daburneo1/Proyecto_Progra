@@ -5,7 +5,9 @@
  */
 package BLOGICA;
 
+import CLASES.Parqueadero;
 import CLASES.Propietario;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,8 +15,8 @@ import CLASES.Propietario;
  */
 public class ManPropietario {
     
-    public Propietario CrearPropietario(String Nombre, String Apellido, String Cedula, String User, String Password){
-        Propietario ObjPro = new Propietario(Nombre, Apellido, Cedula, User, Password);
+    public Propietario CrearPropietario(String NombreParqueadero, String Nombre, String Apellido, String Cedula, String User, String Password){
+        Propietario ObjPro = new Propietario(NombreParqueadero, Nombre, Apellido, Cedula, User, Password);
         return ObjPro;
     }
     
@@ -29,7 +31,19 @@ public class ManPropietario {
     public void ModificarCliente() {
         
     }
-
+    
+   
+    public Propietario BuscarPropietario(ArrayList<Propietario> ArrayPropietario, String Nombre){
+        
+        Propietario ObjAux = new Propietario(null, null, null, null, null, null);
+        for(Propietario ObjPro: ArrayPropietario){
+            String strCe = ObjPro.getNombreParqueadero().trim();
+            if(strCe.equals(Nombre.trim())){
+                ObjAux = ObjPro;
+            }
+        }
+        return ObjAux;
+    }
     
     
 }

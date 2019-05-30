@@ -8,12 +8,14 @@ import java.util.*;
  */
 public class Propietario extends Persona {
     
+    public String NombreParqueadero;
     
     public Propietario() {
     }
 
-    public Propietario(String Nombre, String Apellido, String CI, String User, String Pass) {
+    public Propietario(String NombreParqueadero, String Nombre, String Apellido, String CI, String User, String Pass) {
         super(Nombre, Apellido, CI, User, Pass);
+        this.NombreParqueadero = NombreParqueadero;
         
     }
 
@@ -23,6 +25,14 @@ public class Propietario extends Persona {
 
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
+    }
+    
+    public void setNombreParqueadero(String NombreParqueadero){
+        this.NombreParqueadero = NombreParqueadero;
+    }
+    
+    public String getNombreParqueadero(){
+        return NombreParqueadero;
     }
 
     public String getApellido() {

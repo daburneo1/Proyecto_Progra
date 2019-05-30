@@ -15,14 +15,14 @@ public class Parqueadero {
     public Integer PlazasDisponibles;
     public Double Tarifa;
     public Propietario propietario;
-    public EstadoParqueadero estado;
-    public ArrayList<PlazaParqueo> plazaParqueo = new ArrayList<PlazaParqueo>();
+    public String Estado;
+    //public ArrayList<PlazaParqueo> plazaParqueo = new ArrayList<PlazaParqueo>();
     
     
     public Parqueadero() {
     }
 
-    public Parqueadero(String Nombre, String CallePrincipal, String CalleSecundaria, String Sector, Integer PlazasDisponibles, Double Tarifa, Propietario propietario, EstadoParqueadero estado) {
+    public Parqueadero(String Nombre, String CallePrincipal, String CalleSecundaria, String Sector, Integer PlazasDisponibles, Double Tarifa, Propietario propietario, String Estado) {
         this.Nombre = Nombre;
         this.CallePrincipal = CallePrincipal;
         this.CalleSecundaria = CalleSecundaria;
@@ -30,7 +30,7 @@ public class Parqueadero {
         this.PlazasDisponibles = PlazasDisponibles;
         this.Tarifa = Tarifa;
         this.propietario = propietario;
-        this.estado = estado;
+        this.Estado = Estado;
     }
 
     public String getNombre() {
@@ -89,14 +89,14 @@ public class Parqueadero {
         this.propietario = propietario;
     }
 
-    public EstadoParqueadero getEstado() {
-        return estado;
+    public String getEstado() {
+        return Estado;
     }
 
-    public void setEstado(EstadoParqueadero estado) {
-        this.estado = estado;
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
     }
-
+/*
     public ArrayList<PlazaParqueo> getPlazaParqueo() {
         return plazaParqueo;
     }
@@ -104,11 +104,14 @@ public class Parqueadero {
     public void setPlazaParqueo(ArrayList<PlazaParqueo> plazaParqueo) {
         this.plazaParqueo = plazaParqueo;
     }
+*/
 
     @Override
     public String toString() {
-        return "Parqueadero{" + "Nombre=" + Nombre + ", CallePrincipal=" + CallePrincipal + ", CalleSecundaria=" + CalleSecundaria + ", Sector=" + Sector + ", PlazasDisponibles=" + PlazasDisponibles + ", Tarifa=" + Tarifa + ", propietario=" + propietario + ", estado=" + estado + '}';
+        return "Parqueadero{" + "Nombre=" + Nombre + ", CallePrincipal=" + CallePrincipal + ", CalleSecundaria=" + CalleSecundaria + ", Sector=" + Sector + ", PlazasDisponibles=" + PlazasDisponibles + ", Tarifa=" + Tarifa + ", propietario=" + propietario + ", Estado=" + Estado + '}';
     }
+    
+    
 
     
     
