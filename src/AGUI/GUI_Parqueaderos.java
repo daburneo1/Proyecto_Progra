@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -26,6 +27,13 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
     //String Sector = this.jComboBox1.getActionCommand();
     
     int rowSel = -1;
+    
+    public static String Nombre;
+    public static String CallePrincipal;
+    public static String CalleSecundaria;
+    public static String Sector;
+    public static String PlazasDisponibles;
+    public static String Tarifa;
     
     public GUI_Parqueaderos() {
         initComponents();
@@ -50,14 +58,14 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButtonListar = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -75,7 +83,7 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         jLabel2.setText("Seleccione el sector:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "San Sebastian", "Santo Domingo", "Parque Bolivar", "Parque Central", "San Francisco", "Mercado" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Sebastian", "Santo Domingo", "Parque Bolivar", "Parque Central", "San Francisco", "Mercado" }));
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox1MouseClicked(evt);
@@ -99,6 +107,11 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
                 "Nombre", "Calle Principal", "Calle Secundaria", "Sector", "Plazas Disponibles", "Tarifa"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 680, 100));
@@ -115,14 +128,6 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
-
         jButtonListar.setText("Listar");
         jButtonListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +136,14 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
         jPanel1.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 130, 100));
+
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 360));
 
@@ -142,27 +155,26 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        GUI_Reserva reserva = new GUI_Reserva();
+        dispose();
+        reserva.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
         
     }//GEN-LAST:event_jComboBox1MouseClicked
 
     private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
-       
+
         jTable1.removeAll();
-        
         Object columnas[] = {"Nombre","Calle Principal","Calle Secundaria","Sector","Plazas Disponibles","Tafifa"};
         DefaultTableModel modelo = new DefaultTableModel (null, columnas);
         jTable1.setModel(modelo);
         String Sector = this.jComboBox1.getSelectedItem().toString();
         ArrayParqueaderos = ObjManPar.ImportarParqueaderos(ArrayParqueaderos, Sector);
+        
         for(Parqueadero ObjPar: ArrayParqueaderos){
+            jTable1.removeAll();
             String NewValor[] = {String.valueOf(ObjPar.getNombre()),
                     String.valueOf(ObjPar.getCallePrincipal()),
                     String.valueOf(ObjPar.getCalleSecundaria()),
@@ -175,6 +187,25 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonListarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        Parqueadero ObjPar = new Parqueadero();
+        rowSel = jTable1.getSelectedRow();
+        
+        Nombre = String.valueOf(jTable1.getValueAt(rowSel, 0).toString());
+        CallePrincipal = String.valueOf(jTable1.getValueAt(rowSel, 1).toString());
+        CalleSecundaria = String.valueOf(jTable1.getValueAt(rowSel, 2).toString());
+        Sector = String.valueOf(jTable1.getValueAt(rowSel, 3).toString());
+        PlazasDisponibles = String.valueOf(jTable1.getValueAt(rowSel, 4).toString());
+        Tarifa = String.valueOf(jTable1.getValueAt(rowSel, 5));
+        
+        
+    }//GEN-LAST:event_jTable1MouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -214,8 +245,8 @@ public class GUI_Parqueaderos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonListar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
