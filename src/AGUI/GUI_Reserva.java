@@ -25,8 +25,12 @@ public class GUI_Reserva extends javax.swing.JFrame {
     String CalleSecundaria = GUI_Parqueaderos.CalleSecundaria;
     String Sector = GUI_Parqueaderos.Sector;
     String PlazasDisponibles = GUI_Parqueaderos.PlazasDisponibles;
-    String Tatifa = GUI_Parqueaderos.Tarifa;
+    String Tarifa = GUI_Parqueaderos.Tarifa;
     int Plaza = -1;
+    public static String PlazaSeleccionada;
+    public static String Fecha1;
+    public static String HoraLlegada;
+    public static String HoraSalida;
         
         
     public GUI_Reserva() {
@@ -90,6 +94,8 @@ public class GUI_Reserva extends javax.swing.JFrame {
         Date date2 = new Date();
         SpinnerDateModel sm2 = new SpinnerDateModel(date, null, null, Calendar.HOUR_OF_DAY);
         jSpinnerHoraSalida = new javax.swing.JSpinner(sm2);
+        jLabel11 = new javax.swing.JLabel();
+        jTextFieldTarifa = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -342,6 +348,11 @@ public class GUI_Reserva extends javax.swing.JFrame {
         jPanel3.add(jTextFieldEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 130, -1));
 
         jButtonConfirmar.setText("Confirmar");
+        jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
 
         jButtonCancelar.setText("Cancelar");
@@ -361,6 +372,12 @@ public class GUI_Reserva extends javax.swing.JFrame {
         jSpinnerHoraSalida.setEditor(de2);
         jSpinnerHoraSalida.setEnabled(false);
         jPanel3.add(jSpinnerHoraSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
+
+        jLabel11.setText("Tarifa:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+
+        jTextFieldTarifa.setEditable(false);
+        jPanel3.add(jTextFieldTarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 50, -1));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 380, 480));
 
@@ -397,11 +414,18 @@ public class GUI_Reserva extends javax.swing.JFrame {
         this.jSpinnerHoraSalida.setEnabled(true);
         
         Date Fecha = new Date();
-        this.jTextFieldFecha.setText(new SimpleDateFormat("dd-MM-yyyy").format(Fecha));
+        Fecha1 = String.valueOf(new SimpleDateFormat("dd-MM-yyyy").format(Fecha));
+        this.jTextFieldFecha.setText(Fecha1);
         this.jTextFieldPlaza.setText(String.valueOf(Plaza));
         this.jTextFieldEstado.setText("Libre");
-        
-        
+        this.jTextFieldTarifa.setText(Tarifa); 
+        HoraLlegada = this.jSpinnerHoraLlegada.getValue().toString();
+        System.out.println(HoraLlegada);
+        String Fecha2 = String.valueOf(new SimpleDateFormat("hh-mm").format(Fecha));
+        //HoraLlegada = new SimpleDateFormat("hh-mm").format(Fecha);
+        System.out.println(Fecha2);
+        /*HoraLlegada = String.valueOf(new SimpleDateFormat("hh-mm").format(Fecha));
+        System.out.println(HoraLlegada);*/
         
     }//GEN-LAST:event_jButtonCargarDatosActionPerformed
 
@@ -546,6 +570,12 @@ public class GUI_Reserva extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxP10ActionPerformed
 
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        GUI_FichaParqueo FichaParqueo = new GUI_FichaParqueo();
+        dispose();
+        FichaParqueo.setVisible(true);
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -609,6 +639,7 @@ public class GUI_Reserva extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxP9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -627,6 +658,7 @@ public class GUI_Reserva extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNombreP;
     private javax.swing.JTextField jTextFieldPlaca;
     private javax.swing.JTextField jTextFieldPlaza;
+    private javax.swing.JTextField jTextFieldTarifa;
     private javax.swing.JTextField jTextFieldUsuario;
     private javax.swing.JTextField jTextFieldVehiculo;
     // End of variables declaration//GEN-END:variables

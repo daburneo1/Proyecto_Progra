@@ -15,7 +15,7 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String Placa, String Tipo, String Cedula) {
+    public Vehiculo(String Cedula, String Placa, String Tipo) {
         this.Placa = Placa;
         this.Tipo = Tipo;
         this.Cedula = Cedula;

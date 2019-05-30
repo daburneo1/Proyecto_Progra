@@ -277,6 +277,9 @@ public class GUI_RegistrarParqueadero extends javax.swing.JFrame {
             }
             
         }
+        GUI_Login login = new GUI_Login();
+        this.dispose();
+        login.setVisible(true);
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     /**

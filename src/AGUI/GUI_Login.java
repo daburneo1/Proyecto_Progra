@@ -5,9 +5,12 @@
  */
 package AGUI;
 
+import BLOGICA.ManCliente;
+import CLASES.Usuario;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +21,8 @@ public class GUI_Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    ManCliente ManCli = new ManCliente();
+    
     public GUI_Login() {
         initComponents();
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/IMAGENES/KICC_Maps.jpg"));
@@ -70,7 +75,11 @@ public class GUI_Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Seleccione Rol:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        txtUsuario.setText("daburneo1");
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 170, -1));
+
+        txtconstrasena.setText("123456");
         getContentPane().add(txtconstrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 170, -1));
 
         jButtonAceptar.setText("Ingresar");
@@ -96,7 +105,7 @@ public class GUI_Login extends javax.swing.JFrame {
 
         cmbRoles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Propietario", "Cliente" }));
         getContentPane().add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 140, -1));
-        getContentPane().add(imgfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 330));
+        getContentPane().add(imgfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 420, 330));
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 350, 140));
 
         pack();
@@ -110,12 +119,28 @@ public class GUI_Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(cmbRoles.getSelectedItem() ==  "Administrador" ){
             
-        }else if(cmbRoles.getSelectedItem() ==  "Propietario" ){
+        } 
+        
+        if(cmbRoles.getSelectedItem() ==  "Propietario" ){
             
-        }else if(txtUsuario.getText().equals("cliente") && txtconstrasena.getText().equals("1234")){
-            GUI_Cliente cliente = new GUI_Cliente();
-            dispose();
-            cliente.setVisible(true);
+        }
+        
+        if(String.valueOf(this.cmbRoles.getSelectedItem()) == "Cliente"){
+            String User = this.txtUsuario.getText();
+            String Pass = this.txtconstrasena.getText();
+            
+            Usuario user = ManCli.BuscarUsuario(User, Pass);
+            //System.out.println(user.toString());
+            
+            if(user != null){
+                GUI_Cliente cliente = new GUI_Cliente();
+                dispose();
+                cliente.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "El usuario o contraseña son incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 

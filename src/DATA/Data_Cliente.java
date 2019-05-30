@@ -6,6 +6,7 @@
 package DATA;
 
 import CLASES.Cliente;
+import CLASES.Usuario;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.StringTokenizer;
  * @author David
  */
 public class Data_Cliente {
+    
     public static ArrayList<Cliente> ImportarClientes(){   
         ArrayList<Cliente> ArrayClientes = new ArrayList<Cliente>();
         File f = new File("Archivos/clientes.txt");        
@@ -40,4 +42,37 @@ public class Data_Cliente {
         }
         return ArrayClientes;
     } 
+    
+    public static Usuario ImportarUsuarios(String User, String Pass){   
+        Usuario user = new Usuario(null, null, null);
+        File f = new File("credenciales.csv");    
+
+        StringTokenizer st;
+        Scanner entrada = null;
+        String sCadena;
+        try {
+            entrada = new Scanner(f);
+            while (entrada.hasNext()) {            
+                sCadena = entrada.nextLine();
+                st = new StringTokenizer(sCadena, ",");
+                System.out.println("credenciales");
+                while (st.hasMoreTokens()){
+                    Usuario user1 = new Usuario(st.nextToken(), st.nextToken(), st.nextToken());
+                    String linea = String.valueOf(user);
+                    if(linea.contains(User) && linea.contains(Pass)){ 
+                        user = user1;
+                        System.out.println("adasdasd");
+                        System.out.println(user.toString());
+                    }
+                    System.out.println(user1.toString());
+                }
+               
+            }                      
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            entrada.close();
+        }
+        return user;
+    }
 }

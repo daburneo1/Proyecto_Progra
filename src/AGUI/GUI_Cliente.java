@@ -208,7 +208,9 @@ public class GUI_Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCrearReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearReservaActionPerformed
-        // TODO add your handling code here:
+        GUI_Parqueaderos parqueadero = new GUI_Parqueaderos();
+        dispose();
+        parqueadero.setVisible(true);
     }//GEN-LAST:event_jButtonCrearReservaActionPerformed
 
     private void jButtonConsultarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarReservaActionPerformed

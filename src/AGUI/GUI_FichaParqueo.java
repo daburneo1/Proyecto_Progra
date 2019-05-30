@@ -5,15 +5,28 @@
  */
 package AGUI;
 
+import CLASES.Cliente;
+import CLASES.Parqueadero;
+import CLASES.Vehiculo;
+
 /**
  *
  * @author David
  */
 public class GUI_FichaParqueo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FichaParqueo
-     */
+    Cliente ObjCli = new Cliente();
+    Vehiculo ObjVeh = new Vehiculo();
+    Parqueadero ObjPar = new Parqueadero();
+    
+    String Nombre = GUI_Parqueaderos.Nombre;
+    String Placa = ObjVeh.getPlaca();
+    String Fecha = GUI_Reserva.Fecha1;
+    String HoraLlegada = GUI_Reserva.HoraLlegada;
+    String Tarifa = GUI_Parqueaderos.Tarifa;
+    
+    
+    
     public GUI_FichaParqueo() {
         initComponents();
     }
@@ -35,15 +48,26 @@ public class GUI_FichaParqueo extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldTarifa = new javax.swing.JTextField();
+        jTextFieldPlaca = new javax.swing.JTextField();
+        jTextFieldPlaza = new javax.swing.JTextField();
+        jTextFieldFecha = new javax.swing.JTextField();
+        jTextFieldHoraLlegada = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldParqueadero.setEditable(false);
-        jPanel1.add(jTextFieldParqueadero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 230, -1));
+        jPanel1.add(jTextFieldParqueadero, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 170, -1));
 
         jLabel1.setText("Sistema de Gestión de Parqueaderos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
@@ -55,18 +79,45 @@ public class GUI_FichaParqueo extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         jLabel4.setText("Hora de Entrada:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jLabel5.setText("Tarifa:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         jLabel6.setText("Fecha:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+
+        jLabel7.setText("Parqueadero ");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        jTextFieldTarifa.setEditable(false);
+        jPanel1.add(jTextFieldTarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 60, -1));
+
+        jTextFieldPlaca.setEditable(false);
+        jPanel1.add(jTextFieldPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 60, -1));
+
+        jTextFieldPlaza.setEditable(false);
+        jPanel1.add(jTextFieldPlaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 60, -1));
+
+        jTextFieldFecha.setEditable(false);
+        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 90, -1));
+
+        jTextFieldHoraLlegada.setEditable(false);
+        jPanel1.add(jTextFieldHoraLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 90, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 460, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.jTextFieldParqueadero.setText(Nombre);
+        this.jTextFieldPlaca.setText(Placa);
+        this.jTextFieldFecha.setText(Fecha);
+        this.jTextFieldHoraLlegada.setText(HoraLlegada);
+        this.jTextFieldTarifa.setText(Tarifa);
+        
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -111,7 +162,13 @@ public class GUI_FichaParqueo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldFecha;
+    private javax.swing.JTextField jTextFieldHoraLlegada;
     private javax.swing.JTextField jTextFieldParqueadero;
+    private javax.swing.JTextField jTextFieldPlaca;
+    private javax.swing.JTextField jTextFieldPlaza;
+    private javax.swing.JTextField jTextFieldTarifa;
     // End of variables declaration//GEN-END:variables
 }

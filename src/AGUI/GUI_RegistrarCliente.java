@@ -11,6 +11,7 @@ import BLOGICA.ManVehiculo;
 import CLASES.Cliente;
 import CLASES.Vehiculo;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -62,16 +63,16 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextFieldPlaca = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jComboBoxTipoVehiculo = new javax.swing.JComboBox<String>();
+        jComboBoxTipoVehiculo = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jTextFieldUser = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextFieldPassword = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextFieldConfirmarPassword = new javax.swing.JTextField();
+        jPasswordFieldConfirm = new javax.swing.JPasswordField();
+        jPasswordFieldPass = new javax.swing.JPasswordField();
         jButtonConfirmarRegistro = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -185,7 +186,7 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
         jLabel9.setText("Tipo de Vehiculo");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jComboBoxTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Automovil", "Camioneta", "Buseta", "Camión pequeño" }));
+        jComboBoxTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automovil", "Camioneta", "Buseta", "Camión pequeño" }));
         jPanel3.add(jComboBoxTipoVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -211,19 +212,21 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                 jTextFieldUserActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 170, -1));
+        jPanel4.add(jTextFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 130, -1));
 
         jLabel15.setText("Contraseña");
         jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jTextFieldPassword.setText("dada");
-        jPanel4.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 170, -1));
-
         jLabel16.setText("Confirmar Contraseña");
         jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        jTextFieldConfirmarPassword.setText("dada");
-        jPanel4.add(jTextFieldConfirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 170, -1));
+        jPasswordFieldConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldConfirmActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jPasswordFieldConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, -1));
+        jPanel4.add(jPasswordFieldPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 130, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 380, 160));
 
@@ -294,6 +297,8 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
 
     private void jButtonConfirmarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarRegistroActionPerformed
         int ok = 1;
+        char[] PassChar1;
+        String pass1 = "";
         /*
         if(ObjExp.NumerosCedula(this.jTextFieldCedula1.getText()) && ObjExp.NumeroCelular(this.jTextFieldCorreo.getText()) && this.jTextFieldNombre.getText() != null && this.jTextFieldApellido.getText() != null){
             ok = 1;
@@ -340,6 +345,20 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error con el ingreso del correo electronico", "ERROR", JOptionPane.ERROR_MESSAGE); 
         }
         
+        
+        
+        if(Arrays.equals(this.jPasswordFieldPass.getPassword(), this.jPasswordFieldConfirm.getPassword())){
+            PassChar1 = this.jPasswordFieldPass.getPassword();
+            pass1 = new String(PassChar1);
+            ok = 1;
+            
+            
+        }else{
+            ok = 0;
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+        
         if(ok == 1){
             
             ObjVeh = ObjManVeh.RegistrarVehiculo(this.jTextFieldPlaca.getText(), this.jComboBoxTipoVehiculo.getSelectedItem().toString(), this.jTextFieldCedula1.getText());
@@ -349,12 +368,24 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
                             this.jTextFieldCelular1.getText(),
                             this.jTextFieldCedula1.getText(),
                             this.jTextFieldUser.getText(),
-                            this.jTextFieldPassword.getText(),
+                            pass1,
                             ObjVeh,
                             this.jTextFieldCorreo.getText());
             JOptionPane.showMessageDialog(null, ObjCli);
             try {
                 ObjManCli.EscribirRegistros(ObjCli);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_RegistrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            try {
+                ObjManCli.EscribirCredenciales(ObjCli);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_RegistrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            try {
+                ObjManCli.EscribirVehiculo(ObjVeh);
             } catch (IOException ex) {
                 Logger.getLogger(GUI_RegistrarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -371,6 +402,10 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
     private void jTextFieldCelular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCelular1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCelular1ActionPerformed
+
+    private void jPasswordFieldConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldConfirmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,13 +471,13 @@ public class GUI_RegistrarCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPasswordField jPasswordFieldConfirm;
+    private javax.swing.JPasswordField jPasswordFieldPass;
     private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldCedula1;
     private javax.swing.JTextField jTextFieldCelular1;
-    private javax.swing.JTextField jTextFieldConfirmarPassword;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldPlaca;
     private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
